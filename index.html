@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+			integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js" defer></script>
+		<title>Rock Paper Scissors Game</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="title">Rock Paper Scissors Game</h1>
+			<!-- MAIN SCREEN -->
+			<div class="main-screen hide" id="main-screen">
+				<h2 id="result-announce" class="result-announce"></h2>
+				<div class="showcase">
+					<div class="choices">
+						<div class="names" id="player-name">You</div>
+						<div class="weapon-choice" id="show-player-choice"></div>
+					</div>
+					<div class="choices">
+						<div class="names">Computer</div>
+						<div class="weapon-choice" id="show-computer-choice"></div>
+					</div>
+				</div>
+				<button type="button" id="replay-btn" class="replay-btn">
+					Play again!
+				</button>
+			</div>
+			<!-- CHOICE SCREEN -->
+			<div class="choice-screen" id="choice-screen">
+				<h2 class="weapon-question">Choose Your Weapon:</h2>
+				<div class="weapons">
+					<div class="weapon rock" data-weapon="rock">
+						<i class="fa-solid fa-hand-back-fist"></i>
+					</div>
+					<div class="weapon paper" data-weapon="paper">
+						<i class="fa-solid fa-hand"></i>
+					</div>
+					<div class="weapon scissors" data-weapon="scissors">
+						<i class="fa-solid fa-hand-scissors"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
