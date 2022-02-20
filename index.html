@@ -23,16 +23,23 @@
 				<h2 id="result-announce" class="result-announce"></h2>
 				<div class="showcase">
 					<div class="choices">
-						<div class="names" id="player-name">You</div>
+						<div class="names" id="player-name">
+							You: <span id="player-score" class="green">0</span>
+						</div>
 						<div class="weapon-choice" id="show-player-choice"></div>
 					</div>
 					<div class="choices">
-						<div class="names">Computer</div>
+						<div class="names">
+							Computer: <span id="computer-score" class="red">0</span>
+						</div>
 						<div class="weapon-choice" id="show-computer-choice"></div>
 					</div>
 				</div>
 				<button type="button" id="replay-btn" class="replay-btn">
 					Play again!
+				</button>
+				<button type="button" id="restart-btn" class="restart-btn">
+					Restart game
 				</button>
 			</div>
 			<!-- CHOICE SCREEN -->

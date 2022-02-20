@@ -3,6 +3,12 @@ const choiceScreen = document.getElementById('choice-screen')
 const weapons = document.querySelector('.weapons')
 const resultAnnounce = document.getElementById('result-announce')
 const replayBtn = document.getElementById('replay-btn')
+const restartBtn = document.getElementById('restart-btn')
+const playerScore = document.getElementById('player-score')
+const computerScore = document.getElementById('computer-score')
+const playerChoiceSquare = document.getElementById('show-player-choice')
+const computerChoiceSquare = document.getElementById('show-computer-choice')
+
 // Creating players factory
 function createPlayer() {
 	let score = 0
@@ -96,13 +102,35 @@ function showResult() {
 		resultAnnounce.classList.remove('red')
 		resultAnnounce.classList.add('green')
 		resultAnnounce.innerText = 'You Won! 😍'
+		game.player.score++
+		playerScore.innerText = game.player.score
 		return
 	}
 	if (game.roundResult === 'lost') {
 		resultAnnounce.classList.remove('green')
 		resultAnnounce.classList.add('red')
 		resultAnnounce.innerText = 'You lost! 😢'
+		game.computer.score++
+		computerScore.innerText = game.computer.score
 		return
+	}
+}
+
+function showWeapon(weapon) {
+	if (weapon === 'rock') {
+		playerChoiceSquare.innerHTML = `<i class="fa-solid fa-hand-back-fist"></i>`
+	} else if (weapon === 'paper') {
+		playerChoiceSquare.innerHTML = `<i class="fa-solid fa-hand"></i>`
+	} else {
+		playerChoiceSquare.innerHTML = `<i class="fa-solid fa-hand-scissors"></i>`
+	}
+
+	if (game.computer.weapon === 'rock') {
+		computerChoiceSquare.innerHTML = `<i class="fa-solid fa-hand-back-fist"></i>`
+	} else if (game.computer.weapon === 'paper') {
+		computerChoiceSquare.innerHTML = `<i class="fa-solid fa-hand"></i>`
+	} else {
+		computerChoiceSquare.innerHTML = `<i class="fa-solid fa-hand-scissors"></i>`
 	}
 }
 
@@ -119,9 +147,19 @@ weapons.addEventListener('click', (e) => {
 		//Checking who won
 		checkWinner()
 		//Show main screen
+		showWeapon(weapon)
 		mainScreen.classList.remove('hide')
 		choiceScreen.classList.add('hide')
 	}
 })
 
+// Buttons functionality
 replayBtn.addEventListener('click', replay)
+restartBtn.addEventListener('click', () => {
+	game = startNewGame()
+	mainScreen.classList.add('hide')
+	choiceScreen.classList.remove('hide')
+	playerScore.innerText = '0'
+	computerScore.innerText = '0'
+	resultAnnounce.innerText = ''
+})
